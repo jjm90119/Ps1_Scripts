@@ -1,0 +1,9 @@
+$remoteComputers = (IP address)
+foreach ($remoteComputer in $remoteComputers) {
+$pingResult = Test-Connection -ComputerName $remoteComputer -Count 1
+ if ($pingResult.StatusCode -eq 0) {
+        Write-Host "$remoteComputer is reachable"
+    } else {
+        Write-Host "$remoteComputer is unreachable"
+    }
+}
